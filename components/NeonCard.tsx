@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { useState } from "react";
 import { Project } from "../data/projects";
 import { ArrowUpRight } from "lucide-react";
 
@@ -9,6 +10,8 @@ interface NeonCardProps {
 }
 
 export default function NeonCard({ project }: NeonCardProps) {
+  const [hasError, setHasError] = useState(false);
+
   return (
     <div className="w-full flex flex-col group cursor-grab active:cursor-grabbing">
       {/* Image Container (The actual card) */}
@@ -26,15 +29,29 @@ export default function NeonCard({ project }: NeonCardProps) {
           e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)";
         }}
       >
-        {/* Live Preview Background (Full Opacity now that text isn't over it) */}
-        <div 
-          className="absolute inset-0 opacity-80 group-hover:opacity-100 transition-opacity duration-500 z-0"
-          style={{
-            backgroundImage: `url('https://s0.wp.com/mshots/v1/${encodeURIComponent(project.link)}?w=800')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'top center'
-          }}
-        />
+        {/* Live Preview Background or Fallback */}
+        {hasError ? (
+          <div className="absolute inset-0 flex items-center justify-center bg-[#111111] opacity-80 group-hover:opacity-100 transition-opacity duration-500 z-0">
+            {/* Ambient glowing radial gradient based on theme color */}
+            <div 
+              className="absolute inset-0 opacity-20"
+              style={{
+                background: `radial-gradient(circle at center, ${project.themeColor} 0%, transparent 70%)`
+              }}
+            />
+            {/* Project Initial */}
+            <span className="text-6xl font-black opacity-40 z-10 select-none tracking-tighter" style={{ color: project.themeColor }}>
+              {project.title.substring(0, 2).toUpperCase()}
+            </span>
+          </div>
+        ) : (
+          <img 
+            src={`https://image.thum.io/get/width/800/crop/450/noanimate/${project.link}`}
+            alt={`${project.title} Preview`}
+            className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 z-0"
+            onError={() => setHasError(true)}
+          />
+        )}
 
         {/* Hover overlay link indicator */}
         <a 
