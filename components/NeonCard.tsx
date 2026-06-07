@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { useState } from "react";
 import { Project } from "../data/projects";
 import { ArrowUpRight } from "lucide-react";
 
@@ -10,8 +9,6 @@ interface NeonCardProps {
 }
 
 export default function NeonCard({ project }: NeonCardProps) {
-  const [hasError, setHasError] = useState(false);
-
   return (
     <div className="w-full flex flex-col group cursor-grab active:cursor-grabbing">
       {/* Image Container (The actual card) */}
@@ -29,8 +26,8 @@ export default function NeonCard({ project }: NeonCardProps) {
           e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)";
         }}
       >
-        {/* Live Preview Background or Fallback */}
-        {hasError ? (
+        {/* Live Preview Background or Manual Placeholder */}
+        {project.usePlaceholder ? (
           <div className="absolute inset-0 flex items-center justify-center bg-[#111111] opacity-80 group-hover:opacity-100 transition-opacity duration-500 z-0">
             {/* Ambient glowing radial gradient based on theme color */}
             <div 
@@ -45,24 +42,26 @@ export default function NeonCard({ project }: NeonCardProps) {
             </span>
           </div>
         ) : (
-          <img 
-            src={`https://image.thum.io/get/width/800/crop/450/noanimate/${project.link}`}
-            alt={`${project.title} Preview`}
-            className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 z-0"
-            onError={() => setHasError(true)}
+          <div
+            className="absolute inset-0 opacity-80 group-hover:opacity-100 transition-opacity duration-500 z-0"
+            style={{
+              backgroundImage: `url('https://s0.wp.com/mshots/v1/${encodeURIComponent(project.link)}?w=800')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'top center'
+            }}
           />
         )}
 
         {/* Hover overlay link indicator */}
-        <a 
-          href={project.link} 
+        <a
+          href={project.link}
           target="_blank"
           rel="noopener noreferrer"
           className="absolute inset-0 z-20 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         >
           <div className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
             Visit Site
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7" /><path d="M7 7h10v10" /></svg>
           </div>
         </a>
       </div>

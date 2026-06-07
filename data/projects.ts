@@ -5,6 +5,7 @@ export interface Project {
   description: string;
   link: string;
   themeColor: string;
+  usePlaceholder?: boolean;
 }
 
 export const webTools: Project[] = [
@@ -121,7 +122,8 @@ export const websites: Project[] = [
     title: "Xiao Wu Soul Land",
     description: "Immersive fan experience for Soul Land.",
     link: "https://xiao-wu-soul-land.web.app/",
-    themeColor: "#10b981", // Emerald
+    themeColor: "#ec4899", // Pink
+    usePlaceholder: true, // Use custom pink placeholder
   },
   {
     id: "ws-8",
