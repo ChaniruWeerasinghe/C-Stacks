@@ -108,11 +108,11 @@ export default function InfiniteCarousel({ items }: InfiniteCarouselProps) {
 
   return (
     <div 
-      className="relative w-full flex flex-col items-center justify-center pt-4 pb-12 sm:pt-6 sm:pb-20 overflow-hidden"
+      className="relative w-full flex flex-col items-center justify-center pt-4 pb-4 sm:pt-6 sm:pb-20 overflow-hidden"
       onWheel={handleWheel}
     >
       {/* Track */}
-      <div className="relative w-full max-w-[280px] sm:max-w-md md:max-w-[480px] h-[450px] sm:h-[550px] flex items-center justify-center perspective-[1000px]">
+      <div className="relative w-full max-w-[280px] sm:max-w-md md:max-w-[480px] h-[340px] sm:h-[550px] flex items-center justify-center perspective-[1000px]">
         {items.map((item, index) => {
           let offset = (index - currentIndex) % items.length;
           if (offset < 0) offset += items.length;
@@ -159,7 +159,7 @@ export default function InfiniteCarousel({ items }: InfiniteCarouselProps) {
       </div>
 
       {/* Navigation Buttons (Below on mobile, Sides on desktop) */}
-      <div className="flex items-center justify-center space-x-6 mt-8 sm:mt-0 sm:absolute sm:inset-0 sm:pointer-events-none">
+      <div className="flex items-center justify-center space-x-6 mt-2 sm:mt-0 sm:absolute sm:inset-0 sm:pointer-events-none">
         <button
           onClick={handlePrev}
           className="relative sm:absolute sm:left-8 z-50 p-3 sm:p-3 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:scale-110 transition-all duration-300 sm:pointer-events-auto"
