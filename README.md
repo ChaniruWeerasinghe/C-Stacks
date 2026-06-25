@@ -89,7 +89,9 @@ npm run build
 
 ## Deployment
 
-The site is statically generated and can be deployed to any static hosting provider or edge platform. The recommended approach is Vercel, which integrates directly with the Next.js App Router.
+The site is live at [c-stacks-livid.vercel.app](https://c-stacks-livid.vercel.app).
+
+It is connected to this repository via Vercel. Pushing to the `main` branch automatically triggers a production deployment — no manual deploy step required.
 
 ---
 
