@@ -77,7 +77,7 @@ export const webTools: Project[] = [
     eyebrow: "Productivity",
     title: "TaskTrace",
     description: "A collaborative task and todo manager.",
-    link: "https://tasktrace-todo.web.app/pages/invite.html?id=TxUNSXJ3YOCWUiDSKibr",
+    link: "https://tasktrace-todo.web.app/",
     themeColor: "#f59e0b", // Amber
     image: "/previews/tasktrace.png",
   }
