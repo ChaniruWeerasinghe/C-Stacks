@@ -182,6 +182,14 @@ export const websites: Project[] = [
     description: "Transparent pricing for premium web development packages.",
     link: "https://elevate-digital-client-pricing-site.vercel.app/",
     themeColor: "#3b82f6", // Blue
+  },
+  {
+    id: "ws-13",
+    eyebrow: "Portfolio",
+    title: "Chaniru.Dev",
+    description: "Portfolio of Chaniru Weerasinghe, System Administrator & Developer.",
+    link: "https://chaniru-dev.web.app/",
+    themeColor: "#64748b", // Slate
   }
 ];
 
