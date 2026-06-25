@@ -2,7 +2,7 @@ import React from "react";
 import InfiniteCarousel from "@/components/InfiniteCarousel";
 import Footer from "@/components/Footer";
 import SocialLinks from "@/components/SocialLinks";
-import { webTools, websites } from "@/data/projects";
+import { webTools, websites, officeWebsites } from "@/data/projects";
 
 export default function Home() {
   return (
@@ -55,6 +55,19 @@ export default function Home() {
         </div>
         <div className="w-full">
           <InfiniteCarousel items={websites} />
+        </div>
+      </section>
+
+      {/* Section 3: Professional Work */}
+      <section className="sm:min-h-screen flex flex-col justify-center relative z-10 py-8 sm:py-0">
+        <div className="max-w-7xl mx-auto px-6 mb-2 sm:mb-4 text-center sm:text-left w-full">
+          <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-white mb-1">
+            Professional Work
+          </h2>
+          <div className="w-12 sm:w-16 h-1 bg-gradient-to-r from-amber-500 to-red-500 rounded-full mx-auto sm:mx-0" />
+        </div>
+        <div className="w-full">
+          <InfiniteCarousel items={officeWebsites} />
         </div>
       </section>
 

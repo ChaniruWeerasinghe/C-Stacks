@@ -9,6 +9,26 @@ interface NeonCardProps {
 }
 
 export default function NeonCard({ project }: NeonCardProps) {
+  const getDomainExt = (link: string) => {
+    if (!link || link === "#") return null;
+    try {
+      const url = new URL(link.startsWith("http") ? link : `https://${link}`);
+      const parts = url.hostname.split('.');
+      if (parts.length >= 2) {
+        const lastTwo = parts.slice(-2).join('.');
+        if (lastTwo === 'web.app' || lastTwo === 'vercel.app' || lastTwo === 'github.io') {
+          return '.' + lastTwo;
+        }
+        return '.' + parts[parts.length - 1];
+      }
+    } catch (e) {
+      return null;
+    }
+    return null;
+  };
+
+  const domainExt = getDomainExt(project.link);
+
   return (
     <div className="w-full flex flex-col group cursor-grab active:cursor-grabbing">
       {/* Image Container (The actual card) */}
@@ -55,17 +75,25 @@ export default function NeonCard({ project }: NeonCardProps) {
         )}
 
         {/* Hover overlay link indicator */}
-        <a
-          href={project.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="absolute inset-0 z-20 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        >
-          <div className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-            Visit Site
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7" /><path d="M7 7h10v10" /></svg>
+        {project.link === "#" ? (
+          <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-not-allowed">
+            <div className="px-6 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-white/40 text-sm font-medium flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+              Coming Soon
+            </div>
           </div>
-        </a>
+        ) : (
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute inset-0 z-20 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          >
+            <div className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+              Visit Site
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7" /><path d="M7 7h10v10" /></svg>
+            </div>
+          </a>
+        )}
       </div>
 
       {/* Text Container (Below the card) */}

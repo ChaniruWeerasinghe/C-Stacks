@@ -184,3 +184,79 @@ export const websites: Project[] = [
     themeColor: "#3b82f6", // Blue
   }
 ];
+
+export const officeWebsites: Project[] = [
+  {
+    id: "ow-1",
+    eyebrow: "Travel & Tourism",
+    title: "OTravel Maldives",
+    description: "Premium travel experiences and resort bookings in the Maldives.",
+    link: "https://otravelmaldives.com/",
+    themeColor: "#0ea5e9", // Sky Blue
+  },
+  {
+    id: "ow-2",
+    eyebrow: "Corporate",
+    title: "Geo Infolk",
+    description: "Technology and consulting services for the modern enterprise.",
+    link: "https://www.geoinfolk.com/",
+    themeColor: "#14b8a6", // Teal
+  },
+  {
+    id: "ow-3",
+    eyebrow: "Finance",
+    title: "Finachro",
+    description: "Financial services and business solutions.",
+    link: "https://www.finachro.com/",
+    themeColor: "#10b981", // Emerald
+  },
+  {
+    id: "ow-4",
+    eyebrow: "Agency",
+    title: "Finac Agency",
+    description: "Digital agency providing premium branding and marketing.",
+    link: "https://www.finacagency.com/",
+    themeColor: "#8b5cf6", // Violet
+  },
+  {
+    id: "ow-5",
+    eyebrow: "Non-Profit",
+    title: "Raise Sri Lanka (Ongoing)",
+    description: "Charity and community development initiatives in Sri Lanka.",
+    link: "https://raisesrilanka.org/",
+    themeColor: "#f59e0b", // Amber
+  },
+  {
+    id: "ow-6",
+    eyebrow: "Enterprise",
+    title: "Lithium ERP (Coming Soon)",
+    description: "Next-generation Enterprise Resource Planning software.",
+    link: "#",
+    themeColor: "#ef4444", // Red
+    usePlaceholder: true,
+  },
+  {
+    id: "ow-7",
+    eyebrow: "E-Commerce",
+    title: "Serendib Flora",
+    description: "Premium floral arrangements and delivery services.",
+    link: "https://www.serendibflora.com/",
+    themeColor: "#ec4899", // Pink
+  },
+  {
+    id: "ow-8",
+    eyebrow: "Hospitality",
+    title: "River Range Resort",
+    description: "Experience luxury and serenity in the heart of nature.",
+    link: "https://river-range-resort.web.app/",
+    themeColor: "#14b8a6", // Teal
+  },
+  {
+    id: "ow-9",
+    eyebrow: "Hospitality",
+    title: "River Range Hotel",
+    description: "Elegant villas, dining, and outdoor adventures in Sri Lanka.",
+    link: "https://riverrangehotel.com/",
+    themeColor: "#3b82f6", // Blue
+  }
+];
