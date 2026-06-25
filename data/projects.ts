@@ -35,6 +35,14 @@ export const webTools: Project[] = [
   },
   {
     id: "wt-4",
+    eyebrow: "Connectivity",
+    title: "NetFlash",
+    description: "A background connection engine that silently keeps you online on institutional networks.",
+    link: "https://netflash-pro.web.app/",
+    themeColor: "#06b6d4", // Cyan
+  },
+  {
+    id: "wt-5",
     eyebrow: "File Management",
     title: "OrderBy",
     description: "Organize, group, and bulk rename your images instantly.",
@@ -42,7 +50,7 @@ export const webTools: Project[] = [
     themeColor: "#8b5cf6", // Violet
   },
   {
-    id: "wt-5",
+    id: "wt-6",
     eyebrow: "AI Tool",
     title: "Studio AI",
     description: "Next-gen AI tools for creative studios.",
@@ -50,7 +58,7 @@ export const webTools: Project[] = [
     themeColor: "#0ea5e9", // Sky
   },
   {
-    id: "wt-6",
+    id: "wt-7",
     eyebrow: "Productivity",
     title: "TaskTrace",
     description: "A collaborative task and todo manager.",
@@ -58,7 +66,7 @@ export const webTools: Project[] = [
     themeColor: "#f59e0b", // Amber
   },
   {
-    id: "wt-7",
+    id: "wt-8",
     eyebrow: "PDF Suite",
     title: "MonoEdits",
     description: "Edit, sign, and transform PDFs entirely in your browser.",
