@@ -98,7 +98,7 @@ export const websites: Project[] = [
     title: "River Range Resort",
     description: "Experience luxury and serenity in the heart of nature.",
     link: "https://river-range-resort.web.app/",
-    themeColor: "#14b8a6", // Teal
+    themeColor: "#c2a883", // Sand/Gold
   },
   {
     id: "ws-3",
@@ -164,7 +164,7 @@ export const websites: Project[] = [
     title: "PreyFall",
     description: "An intense real-time multiplayer stealth and survival game.",
     link: "https://preyfall.vercel.app/",
-    themeColor: "#ec4899", // Pink
+    themeColor: "#8b5cf6", // Violet
     image: "/previews/preyfall.png",
   },
   {
@@ -208,7 +208,7 @@ export const officeWebsites: Project[] = [
     title: "Finachro",
     description: "Financial services and business solutions.",
     link: "https://www.finachro.com/",
-    themeColor: "#10b981", // Emerald
+    themeColor: "#06b6d4", // Cyan
   },
   {
     id: "ow-4",
@@ -216,7 +216,7 @@ export const officeWebsites: Project[] = [
     title: "Finac Agency",
     description: "Digital agency providing premium branding and marketing.",
     link: "https://www.finacagency.com/",
-    themeColor: "#8b5cf6", // Violet
+    themeColor: "#3b82f6", // Blue
   },
   {
     id: "ow-5",
@@ -249,7 +249,7 @@ export const officeWebsites: Project[] = [
     title: "River Range Resort",
     description: "Experience luxury and serenity in the heart of nature.",
     link: "https://river-range-resort.web.app/",
-    themeColor: "#14b8a6", // Teal
+    themeColor: "#c2a883", // Sand/Gold
   },
   {
     id: "ow-9",

@@ -46,6 +46,13 @@ export default function NeonCard({ project }: NeonCardProps) {
           e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)";
         }}
       >
+        {/* Domain Extension Tag */}
+        {domainExt && (
+          <div className="absolute top-4 right-4 z-30 px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-mono text-white/90 tracking-widest shadow-lg pointer-events-none group-hover:bg-black/80 transition-colors">
+            {domainExt}
+          </div>
+        )}
+
         {/* Live Preview Background or Manual Placeholder */}
         {project.usePlaceholder ? (
           <div className="absolute inset-0 flex items-center justify-center bg-[#111111] opacity-80 group-hover:opacity-100 transition-opacity duration-500 z-0">
