@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://c-stacks-livid.vercel.app"),
   title: "C-Stacks | Digital Experiences & Web Tools",
   description: "A curated collection of digital experiences, interactive utilities, and premium web interfaces crafted by Chaniru Weerasinghe.",
   keywords: [

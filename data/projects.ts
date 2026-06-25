@@ -5,52 +5,67 @@ export interface Project {
   description: string;
   link: string;
   themeColor: string;
+  image?: string;
   usePlaceholder?: boolean;
 }
 
 export const webTools: Project[] = [
   {
     id: "wt-1",
-    eyebrow: "Documentation",
-    title: "ReadMe Notes",
-    description: "Securely share structured notes and code snippets with your team.",
-    link: "https://readme-share-notes.web.app/",
-    themeColor: "#3b82f6", // Blue
-  },
-  {
-    id: "wt-2",
-    eyebrow: "Utility",
-    title: "TurboCompress",
-    description: "Compress files efficiently on the fly.",
-    link: "https://chanii2024.github.io/turbo-compress/",
-    themeColor: "#10b981", // Emerald
-  },
-  {
-    id: "wt-3",
     eyebrow: "Video Processing",
     title: "DownTown",
     description: "Natively process and combine videos locally with 100% data privacy.",
     link: "https://downtown-extreme.web.app/",
     themeColor: "#f43f5e", // Rose
+    image: "/previews/downtown.png",
   },
   {
-    id: "wt-4",
+    id: "wt-2",
     eyebrow: "Connectivity",
     title: "NetFlash",
     description: "A background connection engine that silently keeps you online on institutional networks.",
     link: "https://netflash-pro.web.app/",
     themeColor: "#06b6d4", // Cyan
+    image: "/previews/netflash.png",
   },
   {
-    id: "wt-5",
+    id: "wt-3",
     eyebrow: "File Management",
     title: "OrderBy",
     description: "Organize, group, and bulk rename your images instantly.",
     link: "https://orderby-uploads.web.app/",
     themeColor: "#8b5cf6", // Violet
+    image: "/previews/orderby.png",
+  },
+  {
+    id: "wt-4",
+    eyebrow: "PDF Suite",
+    title: "MonoEdits",
+    description: "Edit, sign, and transform PDFs entirely in your browser.",
+    link: "https://monoedits-pro.web.app/",
+    themeColor: "#ec4899", // Pink
+    image: "/previews/monoedits.png",
+  },
+  {
+    id: "wt-5",
+    eyebrow: "Documentation",
+    title: "ReadMe Notes",
+    description: "Securely share structured notes and code snippets with your team.",
+    link: "https://readme-share-notes.web.app/",
+    themeColor: "#3b82f6", // Blue
+    image: "/previews/readme-notes.png",
   },
   {
     id: "wt-6",
+    eyebrow: "Utility",
+    title: "TurboCompress",
+    description: "Compress files efficiently on the fly.",
+    link: "https://chanii2024.github.io/turbo-compress/",
+    themeColor: "#10b981", // Emerald
+    image: "/previews/turbocompress.png",
+  },
+  {
+    id: "wt-7",
     eyebrow: "AI Tool",
     title: "Studio AI",
     description: "Next-gen AI tools for creative studios.",
@@ -58,20 +73,13 @@ export const webTools: Project[] = [
     themeColor: "#0ea5e9", // Sky
   },
   {
-    id: "wt-7",
+    id: "wt-8",
     eyebrow: "Productivity",
     title: "TaskTrace",
     description: "A collaborative task and todo manager.",
     link: "https://tasktrace-todo.web.app/pages/invite.html?id=TxUNSXJ3YOCWUiDSKibr",
     themeColor: "#f59e0b", // Amber
-  },
-  {
-    id: "wt-8",
-    eyebrow: "PDF Suite",
-    title: "MonoEdits",
-    description: "Edit, sign, and transform PDFs entirely in your browser.",
-    link: "https://monoedits-pro.web.app/",
-    themeColor: "#ec4899", // Pink
+    image: "/previews/tasktrace.png",
   }
 ];
 
@@ -140,6 +148,7 @@ export const websites: Project[] = [
     description: "An advanced culinary intelligence platform for your household.",
     link: "https://lineage-family.web.app/",
     themeColor: "#6366f1", // Indigo
+    image: "/previews/lineage.png",
   },
   {
     id: "ws-9",
@@ -156,6 +165,7 @@ export const websites: Project[] = [
     description: "An intense real-time multiplayer stealth and survival game.",
     link: "https://preyfall.vercel.app/",
     themeColor: "#ec4899", // Pink
+    image: "/previews/preyfall.png",
   },
   {
     id: "ws-11",

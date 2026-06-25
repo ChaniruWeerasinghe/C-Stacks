@@ -45,7 +45,9 @@ export default function NeonCard({ project }: NeonCardProps) {
           <div
             className="absolute inset-0 opacity-80 group-hover:opacity-100 transition-opacity duration-500 z-0"
             style={{
-              backgroundImage: `url('https://s0.wp.com/mshots/v1/${encodeURIComponent(project.link)}?w=800')`,
+              backgroundImage: project.image
+                ? `url('${project.image}')`
+                : `url('https://s0.wp.com/mshots/v1/${encodeURIComponent(project.link)}?w=800')`,
               backgroundSize: 'cover',
               backgroundPosition: 'top center'
             }}

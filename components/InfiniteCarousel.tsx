@@ -35,20 +35,32 @@ export default function InfiniteCarousel({ items }: InfiniteCarouselProps) {
   }, [handleNext, handlePrev]);
 
   // Handle scroll wheel / trackpad
+  // Smart trackpad scroll handler
   const lastWheelTime = React.useRef(0);
+  const lastJumpTime = React.useRef(0);
+  const lastDelta = React.useRef(0);
+
   const handleWheel = useCallback((e: React.WheelEvent) => {
     const now = Date.now();
-    // 400ms cooldown to prevent rapid spinning from sensitive trackpads/mice
-    if (now - lastWheelTime.current < 400) return;
+    const currentDelta = Math.max(Math.abs(e.deltaX), Math.abs(e.deltaY));
+    
+    // It's a new swipe if there's a gap in wheel events, OR if the speed spikes suddenly.
+    const isPause = now - lastWheelTime.current > 50;
+    const isSpike = currentDelta > lastDelta.current * 1.5 && currentDelta > 20;
 
-    // Check if movement is significant enough (ignore tiny trackpad jitters)
-    if (Math.abs(e.deltaX) > 20 || Math.abs(e.deltaY) > 20) {
-      if (e.deltaX > 0 || e.deltaY > 0) {
-        handleNext();
-      } else {
-        handlePrev();
+    lastWheelTime.current = now;
+    lastDelta.current = currentDelta;
+
+    if (isPause || isSpike) {
+      // Minimum cooldown to let the CSS animation play and swallow the acceleration phase of a flick
+      if (now - lastJumpTime.current > 200) {
+        if (e.deltaX > 0 || e.deltaY > 0) {
+          handleNext();
+        } else {
+          handlePrev();
+        }
+        lastJumpTime.current = now;
       }
-      lastWheelTime.current = now;
     }
   }, [handleNext, handlePrev]);
 
@@ -128,7 +140,7 @@ export default function InfiniteCarousel({ items }: InfiniteCarouselProps) {
               animate={getVariant(offset)}
               variants={variants}
               transition={{
-                duration: 0.5,
+                duration: 0.4,
                 ease: [0.32, 0.72, 0, 1], // Custom easing for premium feel
               }}
               style={{
@@ -138,10 +150,10 @@ export default function InfiniteCarousel({ items }: InfiniteCarouselProps) {
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={0.2}
               onDragEnd={(e, { offset: dragOffset, velocity }) => {
-                const swipe = swipePower(dragOffset.x, velocity.x);
-                if (swipe < -swipeConfidenceThreshold) {
+                // More responsive drag: check distance or velocity
+                if (dragOffset.x < -50 || velocity.x < -300) {
                   handleNext();
-                } else if (swipe > swipeConfidenceThreshold) {
+                } else if (dragOffset.x > 50 || velocity.x > 300) {
                   handlePrev();
                 }
               }}
@@ -179,8 +191,3 @@ export default function InfiniteCarousel({ items }: InfiniteCarouselProps) {
     </div>
   );
 }
-
-const swipeConfidenceThreshold = 10000;
-const swipePower = (offset: number, velocity: number) => {
-  return Math.abs(offset) * velocity;
-};
