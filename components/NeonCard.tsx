@@ -48,7 +48,11 @@ export default function NeonCard({ project }: NeonCardProps) {
       >
         {/* Domain Extension Tag */}
         {domainExt && (
-          <div className="absolute top-4 right-4 z-30 px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-mono text-white/90 tracking-widest shadow-lg pointer-events-none group-hover:bg-black/80 transition-colors">
+          <div className={`absolute top-3 right-3 z-30 px-2.5 py-1 rounded-md backdrop-blur-md border text-[10px] font-mono tracking-widest shadow-lg pointer-events-none transition-colors ${
+            domainExt === '.com'
+              ? 'bg-amber-500/20 border-amber-500/50 text-amber-400 group-hover:bg-amber-500/30 font-semibold'
+              : 'bg-black/60 border-white/10 text-white/90 group-hover:bg-black/80'
+          }`}>
             {domainExt}
           </div>
         )}
