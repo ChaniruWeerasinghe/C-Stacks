@@ -30,7 +30,18 @@ export default function NeonCard({ project }: NeonCardProps) {
   const domainExt = getDomainExt(project.link);
 
   return (
-    <div className="w-full flex flex-col group cursor-grab active:cursor-grabbing">
+    <div className="relative w-full flex flex-col group cursor-grab active:cursor-grabbing">
+      {/* Domain Extension Tag (Floating above the top-right corner) */}
+      {domainExt && (
+        <div className={`absolute -top-3 -right-2 z-50 px-3 py-1 rounded-lg backdrop-blur-md border text-[11px] font-mono tracking-widest shadow-2xl pointer-events-none transition-transform duration-300 group-hover:-translate-y-1 ${
+          domainExt === '.com'
+            ? 'bg-[#1c1305] border-amber-500 text-amber-500 font-bold'
+            : 'bg-[#111] border-white/20 text-white/90'
+        }`}>
+          {domainExt}
+        </div>
+      )}
+
       {/* Image Container (The actual card) */}
       <div
         className="relative w-full aspect-video rounded-2xl bg-[#111111] border border-white/5 transition-all duration-300 overflow-hidden shrink-0"
@@ -46,17 +57,6 @@ export default function NeonCard({ project }: NeonCardProps) {
           e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)";
         }}
       >
-        {/* Domain Extension Tag */}
-        {domainExt && (
-          <div className={`absolute top-3 right-3 z-30 px-2.5 py-1 rounded-md backdrop-blur-md border text-[10px] font-mono tracking-widest shadow-lg pointer-events-none transition-colors ${
-            domainExt === '.com'
-              ? 'bg-amber-500/20 border-amber-500/50 text-amber-400 group-hover:bg-amber-500/30 font-semibold'
-              : 'bg-black/60 border-white/10 text-white/90 group-hover:bg-black/80'
-          }`}>
-            {domainExt}
-          </div>
-        )}
-
         {/* Live Preview Background or Manual Placeholder */}
         {project.usePlaceholder ? (
           <div className="absolute inset-0 flex items-center justify-center bg-[#111111] opacity-80 group-hover:opacity-100 transition-opacity duration-500 z-0">
